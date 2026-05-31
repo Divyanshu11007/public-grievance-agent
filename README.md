@@ -84,7 +84,6 @@ A comprehensive grievance resolution system with:
 ---
 
 ## Project Structure
-
 public_grievance/
 │
 ├── server.js # Main server entry point
