@@ -1,4 +1,5 @@
 # Public Grievance Resolution Agent
+**Team Data Digger**
 
 [![Node.js](https://img.shields.io/badge/Node.js-18.x-green)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.x-blue)](https://expressjs.com/)
@@ -84,6 +85,7 @@ A comprehensive grievance resolution system with:
 ---
 
 ## Project Structure
+```
 public_grievance/
 │
 ├── server.js # Main server entry point
@@ -129,7 +131,7 @@ public_grievance/
 ├── officer.js
 ├── admin.js
 └── chatbot.js
-
+```
 ---
 
 ## Installation & Setup
@@ -148,7 +150,7 @@ npm install
 node server.js
 http://localhost:5000/register.html
 
-2.## Demo Accounts
+2. **Demo Accounts**
 
 | Role | Username | Password |
 |------|----------|----------|
@@ -181,14 +183,14 @@ http://localhost:5000/register.html
 **Note:** You can also type any address or landmark in the search box to quickly find your location.
 
 ## Complaint Status Flow
- 
+``` 
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
 │   Pending   │────▶│   Assigned  │────▶│ In Progress │────▶│  Resolved   │
 └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
       ↑                   ↑                   ↑                   ↑
    Submitted          Officer           Working on         Completed
    by Citizen         Assigned           the issue
-
+```
 ## AI Chatbot Commands
 
 | Question | Response |
@@ -202,7 +204,7 @@ http://localhost:5000/register.html
 **Note:** AI automatically detects risk levels and departments from your complaint text.
 
 ## Team Contributions
-
+**Team Name :** Data Digger
 ### Vansh Gupta - Backend Developer
 - Created initial project files
 - Setup Express server, Socket.io, MongoDB connection
