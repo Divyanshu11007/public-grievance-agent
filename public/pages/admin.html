@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0f1e 0%, #0d1525 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .navbar {
+            background: rgba(10, 15, 30, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 45px; height: 45px; background: linear-gradient(135deg, #2563eb, #7c3aed); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .logo-icon i { font-size: 24px; color: white; }
+        .logo-text h1 { font-size: 20px; background: linear-gradient(135deg, #fff, #94a3b8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo-text p { font-size: 10px; color: #64748b; letter-spacing: 1px; }
+        .nav-links { display: flex; gap: 15px; }
+        .nav-btn {
+            padding: 10px 20px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+        }
+        .nav-btn:hover { background: #3b82f6; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .card {
+            background: rgba(15, 25, 45, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: rgba(15, 25, 45, 0.7);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card h2 { font-size: 32px; font-weight: 800; }
+        .stat-card.Total h2 { color: #3b82f6; }
+        .stat-card.Pending h2 { color: #f59e0b; }
+        .stat-card.Assigned h2 { color: #3b82f6; }
+        .stat-card.Progress h2 { color: #8b5cf6; }
+        .stat-card.Resolved h2 { color: #10b981; }
+        .search-bar {
+            width: 100%;
+            padding: 14px;
+            background: rgba(10, 20, 35, 0.9);
+            border: 1px solid #3b82f6;
+            border-radius: 12px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .status-section { margin-bottom: 30px; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #3b82f6;
+        }
+        .section-header h3 { font-size: 18px; }
+        .section-header .count {
+            background: rgba(59,130,246,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+        .complaints-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+        }
+        .complaint-card {
+            background: rgba(10, 20, 35, 0.8);
+            border-radius: 12px;
+            padding: 15px;
+            border-left: 4px solid #3b82f6;
+        }
+        .complaint-card h3 { color: #3b82f6; font-size: 16px; margin-bottom: 8px; }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+        .status-badge.Pending { background: #f59e0b; color: #000; }
+        .status-badge.Assigned { background: #3b82f6; }
+        .status-badge.In-Progress { background: #8b5cf6; }
+        .status-badge.Resolved { background: #10b981; }
+        .risk-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+        .risk-badge.Low { background: #10b981; }
+        .risk-badge.Medium { background: #f59e0b; color: #000; }
+        .risk-badge.High { background: #ef4444; }
+        .risk-badge.Critical { background: #dc2626; }
+        .tracking-id { font-size: 11px; color: #64748b; margin-top: 8px; }
+        select, button {
+            padding: 6px 12px;
+            background: #1e293b;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .alerts-section {
+            margin-top: 20px;
+        }
+        .alert-card {
+            background: rgba(220, 38, 38, 0.15);
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+        .alert-card.critical { border-left-color: #dc2626; background: rgba(220, 38, 38, 0.2); }
+        .alert-card.read { opacity: 0.6; background: rgba(30, 41, 59, 0.5); }
+        .no-alerts {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+        }
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .navbar { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><div class="logo-icon"><i class="fas fa-landmark"></i></div><div class="logo-text"><h1>SmartGov</h1><p>ADMIN PORTAL</p></div></div>
+        <div class="nav-links"><button class="nav-btn" onclick="logout()">Logout</button></div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Welcome, <span id="profileName">Admin</span></h2>
+            <p>Role: <span id="profileRole">admin</span> | Full System Control</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card Total"><h2 id="totalCount">0</h2><p>Total</p></div>
+            <div class="stat-card Pending"><h2 id="pendingCount">0</h2><p>Pending</p></div>
+            <div class="stat-card Assigned"><h2 id="assignedCount">0</h2><p>Assigned</p></div>
+            <div class="stat-card Progress"><h2 id="progressCount">0</h2><p>In Progress</p></div>
+            <div class="stat-card Resolved"><h2 id="resolvedCount">0</h2><p>Resolved</p></div>
+        </div>
+
+        <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search complaints..." onkeyup="filterComplaints()">
+
+        <div class="status-section">
+            <div class="section-header"><i class="fas fa-clock" style="color:#f59e0b;"></i><h3>Pending Complaints</h3><span class="count" id="pendingSectionCount">0</span></div>
+            <div id="pendingList" class="complaints-grid"></div>
+        </div>
+
+        <div class="status-section">
+            <div class="section-header"><i class="fas fa-user-check" style="color:#3b82f6;"></i><h3>Assigned Complaints</h3><span class="count" id="assignedSectionCount">0</span></div>
+            <div id="assignedList" class="complaints-grid"></div>
+        </div>
+
+        <div class="status-section">
+            <div class="section-header"><i class="fas fa-spinner" style="color:#8b5cf6;"></i><h3>In Progress Complaints</h3><span class="count" id="progressSectionCount">0</span></div>
+            <div id="progressList" class="complaints-grid"></div>
+        </div>
+
+        <div class="status-section">
+            <div class="section-header"><i class="fas fa-check-circle" style="color:#10b981;"></i><h3>Resolved Complaints</h3><span class="count" id="resolvedSectionCount">0</span></div>
+            <div id="resolvedList" class="complaints-grid"></div>
+        </div>
+
+        <div class="card alerts-section">
+            <h2><i class="fas fa-bell"></i> Live Alerts <span id="unreadAlertCount" style="font-size:12px;"></span></h2>
+            <div id="alertsList">Loading alerts...</div>
+        </div>
+    </div>
+
+    <script>
+        const API = "http://localhost:5000/api";
+        const token = localStorage.getItem("token");
+        
+        if (!token) {
+            alert("Please login first");
+            window.location.href = "/login.html";
+        }
+
+        const headers = {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        };
+
+        async function loadData() {
+            try {
+                const profileRes = await fetch(`${API}/auth/profile`, { headers });
+                const profileData = await profileRes.json();
+                if (profileData.success) {
+                    document.getElementById("profileName").innerText = profileData.user.name;
+                    document.getElementById("profileRole").innerText = profileData.user.role;
+                }
+
+                const complaintsRes = await fetch(`${API}/complaints`, { headers });
+                const complaintsData = await complaintsRes.json();
+                const complaints = complaintsData.complaints || [];
+                
+                const pending = complaints.filter(c => c.status === "Pending");
+                const assigned = complaints.filter(c => c.status === "Assigned");
+                const progress = complaints.filter(c => c.status === "In Progress");
+                const resolved = complaints.filter(c => c.status === "Resolved");
+                
+                document.getElementById("totalCount").innerText = complaints.length;
+                document.getElementById("pendingCount").innerText = pending.length;
+                document.getElementById("assignedCount").innerText = assigned.length;
+                document.getElementById("progressCount").innerText = progress.length;
+                document.getElementById("resolvedCount").innerText = resolved.length;
+                document.getElementById("pendingSectionCount").innerText = pending.length;
+                document.getElementById("assignedSectionCount").innerText = assigned.length;
+                document.getElementById("progressSectionCount").innerText = progress.length;
+                document.getElementById("resolvedSectionCount").innerText = resolved.length;
+                
+                renderComplaints("pendingList", pending);
+                renderComplaints("assignedList", assigned);
+                renderComplaints("progressList", progress);
+                renderComplaints("resolvedList", resolved);
+                
+                await loadAlerts();
+                
+            } catch(e) {
+                console.error("Error:", e);
+            }
+        }
+        
+        async function loadAlerts() {
+            try {
+                const alertsRes = await fetch(`${API}/alerts`, { headers });
+                const alertsData = await alertsRes.json();
+                let alerts = alertsData.alerts || [];
+                
+                // Filter to show only unread or show all? Let's show unread first
+                const unreadAlerts = alerts.filter(a => !a.read);
+                const readAlerts = alerts.filter(a => a.read);
+                
+                const alertsContainer = document.getElementById("alertsList");
+                const unreadCount = unreadAlerts.length;
+                document.getElementById("unreadAlertCount").innerHTML = unreadCount > 0 ? `(${unreadCount} new)` : "";
+                
+                if (alerts.length === 0) {
+                    alertsContainer.innerHTML = '<div class="no-alerts"><i class="fas fa-bell-slash"></i> No alerts</div>';
+                    return;
+                }
+                
+                alertsContainer.innerHTML = "";
+                
+                // Show unread alerts first
+                if (unreadAlerts.length > 0) {
+                    alertsContainer.innerHTML += `<div style="margin-bottom: 10px;"><strong>📢 New Alerts (${unreadAlerts.length})</strong></div>`;
+                    unreadAlerts.forEach(alert => {
+                        alertsContainer.innerHTML += renderAlertCard(alert);
+                    });
+                }
+                
+                // Show read alerts (collapsible)
+                if (readAlerts.length > 0) {
+                    alertsContainer.innerHTML += `
+                        <details style="margin-top: 15px;">
+                            <summary style="cursor: pointer; color: #64748b;">📋 Read Alerts (${readAlerts.length})</summary>
+                            <div style="margin-top: 10px;">
+                                ${readAlerts.map(alert => renderAlertCard(alert)).join('')}
+                            </div>
+                        </details>
+                    `;
+                }
+                
+            } catch(e) {
+                console.error("Alerts error:", e);
+            }
+        }
+        
+        function renderAlertCard(alert) {
+            let alertClass = alert.priority === "Critical" ? "critical" : "info";
+            if (alert.read) alertClass += " read";
+            return `
+                <div class="alert-card ${alertClass}" id="alert-${alert._id}">
+                    <strong>🚨 ${escapeHtml(alert.title || "Alert")}</strong>
+                    <p style="margin-top: 5px;">${escapeHtml(alert.message)}</p>
+                    <small>Priority: ${alert.priority || "Normal"} | ${new Date(alert.createdAt).toLocaleString()}</small>
+                    ${!alert.read ? `<div><button onclick="markAlertRead('${alert._id}')" style="margin-top: 8px;">✅ Mark as Read</button></div>` : '<small>✓ Read</small>'}
+                </div>
+            `;
+        }
+        
+        async function markAlertRead(id) {
+            try {
+                const res = await fetch(`${API}/alerts/${id}/read`, { 
+                    method: "PUT", 
+                    headers: headers 
+                });
+                const data = await res.json();
+                if (data.success) {
+                    // Remove the alert from UI or mark it as read
+                    const alertElement = document.getElementById(`alert-${id}`);
+                    if (alertElement) {
+                        alertElement.classList.add('read');
+                        alertElement.innerHTML = alertElement.innerHTML.replace('Mark as Read', '✓ Read');
+                        alertElement.querySelector('button')?.remove();
+                        // Or remove the button and mark as read
+                    }
+                    loadAlerts(); // Reload to update counts
+                    showToast("✅ Alert marked as read");
+                } else {
+                    showToast("❌ Failed to mark as read");
+                }
+            } catch(e) {
+                console.error(e);
+                showToast("❌ Error marking alert as read");
+            }
+        }
+        
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `position:fixed; bottom:20px; right:20px; background:#3b82f6; padding:12px 20px; border-radius:10px; z-index:10000;`;
+            toast.innerHTML = msg;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+        
+        function renderComplaints(containerId, complaints) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            if (complaints.length === 0) {
+                container.innerHTML = '<div style="text-align:center; padding:30px; color:#64748b;">No complaints</div>';
+                return;
+            }
+            
+            container.innerHTML = "";
+            complaints.forEach(c => {
+                let statusClass = c.status === "In Progress" ? "In-Progress" : c.status;
+                container.innerHTML += `
+                    <div class="complaint-card" data-title="${escapeHtml(c.issue)}">
+                        <h3><i class="fas fa-exclamation-triangle"></i> ${escapeHtml(c.issue)}</h3>
+                        <p style="font-size:13px; margin:8px 0;">${escapeHtml(c.description || "No description")}</p>
+                        <div>
+                            <span class="status-badge ${statusClass}">${c.status}</span>
+                            <span class="risk-badge ${c.risk}">${c.risk}</span>
+                            <span style="margin-left:8px;"><i class="fas fa-building"></i> ${c.department}</span>
+                            <span style="margin-left:8px;"><i class="fas fa-map-marker-alt"></i> ${c.ward || 'Unknown'}</span>
+                        </div>
+                        <div class="tracking-id"><i class="fas fa-qrcode"></i> ${c.trackingId}</div>
+                        <div>
+                            <select onchange="updateStatus('${c._id}', this.value)">
+                                <option value="Pending" ${c.status === "Pending" ? "selected" : ""}>📋 Pending</option>
+                                <option value="Assigned" ${c.status === "Assigned" ? "selected" : ""}>👤 Assigned</option>
+                                <option value="In Progress" ${c.status === "In Progress" ? "selected" : ""}>⚙️ In Progress</option>
+                                <option value="Resolved" ${c.status === "Resolved" ? "selected" : ""}>✅ Resolved</option>
+                            </select>
+                            <button onclick="getSummary('${c._id}')" style="margin-left:10px;">🤖 AI Summary</button>
+                        </div>
+                        <div id="summary-${c._id}" style="margin-top:10px; font-size:12px;"></div>
+                    </div>
+                `;
+            });
+        }
+        
+        async function updateStatus(id, status) {
+            try {
+                const res = await fetch(`${API}/complaints/${id}/status`, {
+                    method: "PUT",
+                    headers: headers,
+                    body: JSON.stringify({ status, note: "Updated by admin" })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showToast("✅ Status updated!");
+                    loadData();
+                } else {
+                    showToast("❌ Update failed");
+                }
+            } catch(e) {
+                showToast("❌ Error");
+            }
+        }
+        
+        async function getSummary(id) {
+            const div = document.getElementById(`summary-${id}`);
+            if (div.innerHTML) {
+                div.innerHTML = "";
+                return;
+            }
+            div.innerHTML = "<i class='fas fa-spinner fa-spin'></i> Loading...";
+            try {
+                const res = await fetch(`${API}/chat/summary/${id}`, { method: "POST", headers });
+                const data = await res.json();
+                div.innerHTML = data.summary || "No summary available";
+            } catch(e) {
+                div.innerHTML = "Not available";
+            }
+        }
+        
+        function filterComplaints() {
+            const search = document.getElementById("searchInput").value.toLowerCase();
+            const cards = document.querySelectorAll(".complaint-card");
+            cards.forEach(card => {
+                const title = card.getAttribute("data-title") || "";
+                card.style.display = title.toLowerCase().includes(search) ? "block" : "none";
+            });
+        }
+        
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+        
+        function logout() {
+            localStorage.clear();
+            window.location.href = "/login.html";
+        }
+        
+        setInterval(loadAlerts, 10000);
+        loadData();
+    </script>
+</body>
+</html>

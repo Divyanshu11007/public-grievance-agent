@@ -1,0 +1,586 @@
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 10px;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  width: 100%;
+  background: #111827;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  color: #3b82f6;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links button {
+  padding: 10px 18px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-links button:hover {
+  background: #2563eb;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+  padding: 30px;
+}
+
+/* =========================================
+   GRID
+========================================= */
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  );
+}
+
+.grid-3 {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  );
+}
+
+.grid-4 {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  );
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.card,
+.complaint-card,
+.alert-card,
+.cluster-card,
+.ward-card {
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.card:hover,
+.complaint-card:hover,
+.alert-card:hover,
+.cluster-card:hover,
+.ward-card:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================================
+   STAT CARDS
+========================================= */
+
+.stat-card {
+  background: linear-gradient(
+    135deg,
+    #1e3a8a,
+    #2563eb
+  );
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+}
+
+.stat-card h2 {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 14px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  color: white;
+  outline: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #3b82f6;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+.btn-danger {
+  background: #dc2626;
+}
+
+.btn-success {
+  background: #16a34a;
+}
+
+.btn-warning {
+  background: #f59e0b;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status,
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.Pending {
+  background: #f59e0b;
+  color: black;
+}
+
+.Assigned {
+  background: #3b82f6;
+}
+
+.In\ Progress {
+  background: #9333ea;
+}
+
+.Resolved {
+  background: #16a34a;
+}
+
+.Rejected {
+  background: #dc2626;
+}
+
+/* =========================================
+   RISK BADGES
+========================================= */
+
+.risk {
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.Low {
+  background: #16a34a;
+}
+
+.Medium {
+  background: #f59e0b;
+}
+
+.High {
+  background: #ea580c;
+}
+
+.Critical {
+  background: #dc2626;
+}
+
+/* =========================================
+   MAP
+========================================= */
+
+#map,
+#citizenMap {
+  width: 100%;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+/* =========================================
+   CHATBOT
+========================================= */
+
+#chatbotContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.chat-header {
+  background: #1e40af;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header h3 {
+  font-size: 16px;
+}
+
+#chatbotBody {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#chatbotMessages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.chat-user,
+.chat-ai {
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.chat-user {
+  justify-content: flex-end;
+}
+
+.chat-ai {
+  justify-content: flex-start;
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px;
+  border-radius: 15px;
+  line-height: 1.5;
+}
+
+.chat-user .chat-bubble {
+  background: #2563eb;
+}
+
+.chat-ai .chat-bubble {
+  background: #1e293b;
+}
+
+.chat-input-box {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  border-top: 1px solid #1e293b;
+}
+
+.chat-input-box input {
+  flex: 1;
+}
+
+/* =========================================
+   CHATBOT BUTTON
+========================================= */
+
+.chatbot-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2563eb;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  z-index: 999;
+}
+
+/* =========================================
+   TOAST
+========================================= */
+
+.toast {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  min-width: 250px;
+  padding: 15px;
+  border-radius: 12px;
+  transform: translateX(400px);
+  transition: 0.4s;
+  z-index: 99999;
+}
+
+.toast.show {
+  transform: translateX(0);
+}
+
+.toast.info {
+  background: #2563eb;
+}
+
+.toast.success {
+  background: #16a34a;
+}
+
+.toast.warning {
+  background: #f59e0b;
+}
+
+.toast.danger {
+  background: #dc2626;
+}
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline-box {
+  margin-top: 15px;
+  border-top: 1px solid #334155;
+  padding-top: 15px;
+}
+
+.timeline-item {
+  background: #1e293b;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   ALERTS
+========================================= */
+
+.alert-card {
+  border-left: 5px solid #dc2626;
+}
+
+.alert-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.summary-box {
+  margin-top: 15px;
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 12px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   SEARCH BAR
+========================================= */
+
+.search-bar {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   LOADER
+========================================= */
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(15,23,42,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+}
+
+.loader-circle {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #1e293b;
+  border-top: 5px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+/* =========================================
+   LOGIN + REGISTER
+========================================= */
+
+.auth-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 450px;
+  background: #111827;
+  border-radius: 20px;
+  padding: 35px;
+  border: 1px solid #1e293b;
+}
+
+.auth-box h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #3b82f6;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  #chatbotContainer {
+    width: 95%;
+    right: 2.5%;
+    height: 80vh;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+}

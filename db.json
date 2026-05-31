@@ -1,0 +1,486 @@
+{
+  "users": [
+    {
+      "id": "1780138348343",
+      "name": "Prem Malhotra",
+      "username": "prem",
+      "email": "prem27malhotra@gmail.com",
+      "password": "$2a$10$KsOoAYizhYCO4353frJ9senh1WHeDSBNcOZa3.qnqIJomJYXF9z6e",
+      "role": "citizen",
+      "totalComplaints": 6,
+      "createdAt": "2026-05-30T10:52:28.343Z"
+    },
+    {
+      "id": "1780138737413",
+      "name": "Admin",
+      "username": "admin",
+      "email": "admin@admin.com",
+      "password": "$2a$10$UGSCFpoClu5l242kq6/BEuC9sAIVS68MBniuUux0js7/684HxGd6y",
+      "role": "admin",
+      "totalComplaints": 0,
+      "createdAt": "2026-05-30T10:58:57.414Z"
+    },
+    {
+      "id": "1780141666685",
+      "name": "Prem Malhotra",
+      "username": "prem12",
+      "email": "prem@prem.com",
+      "password": "$2a$10$Wdh8BYrSMdBTnPypa/Makub9T1K.Bd8ntc/TCEvz3YNw9xz7SN6n2",
+      "role": "officer",
+      "totalComplaints": 0,
+      "createdAt": "2026-05-30T11:47:46.685Z"
+    },
+    {
+      "id": "1780153587940",
+      "name": "Prem Malhotra",
+      "username": "prem27malhotra",
+      "email": "prem27malhotra@test.com",
+      "password": "$2a$10$2bC84pXG48ifS/3wtkb5K.ye/GVrI5xFdRPxkUhVkhnVhblDMEuii",
+      "role": "citizen",
+      "totalComplaints": 5,
+      "createdAt": "2026-05-30T15:06:27.940Z"
+    },
+    {
+      "id": "1780154705164",
+      "name": "System Admin",
+      "username": "system",
+      "email": "system@admin.com",
+      "password": "$2a$10$n/4r.8Wkf8de/goVwhFZfeRYf2FqXvC5bxurxOS/7TuoV9NrwvwhS",
+      "role": "admin",
+      "totalComplaints": 0,
+      "createdAt": "2026-05-30T15:25:05.164Z"
+    },
+    {
+      "id": "1780156278272",
+      "name": "Police Officer",
+      "username": "policeofficer",
+      "email": "officer@police.com",
+      "password": "$2a$10$ifMhZFTEtp7BtrBdKfVH/.MuUOA17nHFccfesAkL2ZMVHrpbHwh5G",
+      "role": "officer",
+      "totalComplaints": 0,
+      "createdAt": "2026-05-30T15:51:18.272Z"
+    }
+  ],
+  "complaints": [
+    {
+      "_id": "1780138439447",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780138348343",
+      "issue": "Broken street light",
+      "description": "Street light not working for 15 days, area is dark at night",
+      "department": "Road",
+      "risk": "Low",
+      "ward": "Ward 2",
+      "address": "Near City Market, Main Street, Indore - 452016",
+      "location": {
+        "lat": "22.707987126869202",
+        "lng": "75.87689568776968"
+      },
+      "status": "Resolved",
+      "trackingId": "CMP-1780138439447",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T10:53:59.447Z"
+        },
+        {
+          "status": "Resolved",
+          "updatedBy": "admin",
+          "note": "Updated by admin",
+          "time": "2026-05-30T11:42:40.566Z"
+        }
+      ],
+      "createdAt": "2026-05-30T10:53:59.447Z"
+    },
+    {
+      "_id": "1780138483528",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780138348343",
+      "issue": "Big pothole on Main Road",
+      "description": "Very dangerous pothole causing accidents and traffic jams",
+      "department": "Road",
+      "risk": "Low",
+      "ward": "Ward 5",
+      "address": "",
+      "location": {
+        "lat": "22.71767502646185",
+        "lng": "75.8867824272332"
+      },
+      "status": "Assigned",
+      "trackingId": "CMP-1780138483528",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T10:54:43.528Z"
+        },
+        {
+          "status": "Assigned",
+          "updatedBy": "admin",
+          "note": "Updated by admin",
+          "time": "2026-05-30T11:42:35.563Z"
+        }
+      ],
+      "createdAt": "2026-05-30T10:54:43.528Z"
+    },
+    {
+      "_id": "1780138655960",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780138348343",
+      "issue": "Fire accident near school",
+      "description": "Emergency! Fire spreading quickly near children, need immediate help",
+      "department": "General",
+      "risk": "Critical",
+      "ward": "Ward 3",
+      "address": "vijaynagar",
+      "location": {
+        "lat": "22.760598129565132",
+        "lng": "75.88546738309617"
+      },
+      "status": "In Progress",
+      "trackingId": "CMP-1780138655960",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T10:57:35.960Z"
+        },
+        {
+          "status": "In Progress",
+          "updatedBy": "admin",
+          "note": "Updated by admin",
+          "time": "2026-05-30T11:42:25.074Z"
+        },
+        {
+          "status": "Pending",
+          "updatedBy": "prem12",
+          "note": "Updated by officer",
+          "time": "2026-05-30T12:08:42.112Z"
+        },
+        {
+          "status": "In Progress",
+          "updatedBy": "prem12",
+          "note": "Updated by officer",
+          "time": "2026-05-30T12:08:49.704Z"
+        }
+      ],
+      "createdAt": "2026-05-30T10:57:35.960Z"
+    },
+    {
+      "_id": "1780151081321",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780138348343",
+      "issue": "Test Complaint",
+      "description": "This is a Test Complaint",
+      "department": "General",
+      "risk": "Low",
+      "ward": "Ward 1",
+      "address": "Test Address",
+      "location": {
+        "lat": 22.7144905223788,
+        "lng": 75.90848432859215
+      },
+      "status": "Pending",
+      "trackingId": "CMP-1780151081321",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T14:24:41.321Z"
+        }
+      ],
+      "createdAt": "2026-05-30T14:24:41.321Z"
+    },
+    {
+      "_id": "1780151626962",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780138348343",
+      "issue": "New Compliant",
+      "description": "This is a new complaint",
+      "department": "General",
+      "risk": "Low",
+      "ward": "Ward 7",
+      "address": "New Address",
+      "location": {
+        "lat": 22.7513624,
+        "lng": 75.8941815
+      },
+      "status": "In Progress",
+      "trackingId": "CMP-1780151626962",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T14:33:46.962Z"
+        },
+        {
+          "status": "In Progress",
+          "updatedBy": "system",
+          "note": "Updated by admin",
+          "time": "2026-05-30T15:38:19.274Z"
+        }
+      ],
+      "createdAt": "2026-05-30T14:33:46.962Z"
+    },
+    {
+      "_id": "1780152286392",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780138348343",
+      "issue": "Ambulance Emergency",
+      "description": "There is a huge traffic in the way of Ambulance",
+      "department": "General",
+      "risk": "Critical",
+      "ward": "Ward 9",
+      "address": "Treasure Island",
+      "location": {
+        "lat": 22.7215716,
+        "lng": 75.8786226
+      },
+      "status": "Resolved",
+      "trackingId": "CMP-1780152286392",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T14:44:46.392Z"
+        },
+        {
+          "status": "Assigned",
+          "updatedBy": "system",
+          "note": "Updated by admin",
+          "time": "2026-05-30T15:38:03.742Z"
+        },
+        {
+          "status": "Resolved",
+          "updatedBy": "policeofficer",
+          "note": "Updated by officer",
+          "time": "2026-05-30T15:52:51.921Z"
+        }
+      ],
+      "createdAt": "2026-05-30T14:44:46.392Z"
+    },
+    {
+      "_id": "1780154268176",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780153587940",
+      "issue": "Fire accident near school",
+      "description": "There is a major fire accident near the school. Fire spreading quickly near children. Emergency situation, need immediate help.",
+      "department": "General",
+      "risk": "Critical",
+      "ward": "Ward 2",
+      "address": "Prestige Public School",
+      "location": {
+        "lat": 22.7203616,
+        "lng": 75.8681996
+      },
+      "status": "Resolved",
+      "trackingId": "CMP-1780154268176",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T15:17:48.176Z"
+        },
+        {
+          "status": "Resolved",
+          "updatedBy": "system",
+          "note": "Updated by admin",
+          "time": "2026-05-30T15:38:09.680Z"
+        }
+      ],
+      "createdAt": "2026-05-30T15:17:48.176Z"
+    },
+    {
+      "_id": "1780154334165",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780153587940",
+      "issue": "Urgent water pipeline burst",
+      "description": "Water pipeline burst on Main Street. Water is flooding the area dangerously. Urgent repair needed to prevent damage to houses.",
+      "department": "Water",
+      "risk": "High",
+      "ward": "Ward 4",
+      "address": "Main Street, Near Police Station, Indore",
+      "location": {
+        "lat": 22.7203616,
+        "lng": 75.8681996
+      },
+      "status": "Pending",
+      "trackingId": "CMP-1780154334165",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T15:18:54.165Z"
+        }
+      ],
+      "createdAt": "2026-05-30T15:18:54.165Z"
+    },
+    {
+      "_id": "1780154403949",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780153587940",
+      "issue": "Drainage problem in our street",
+      "description": "There is a drainage problem in our street. Water gets clogged every time it rains. This has been an issue for 3 months.",
+      "department": "Road",
+      "risk": "Medium",
+      "ward": "Ward 6",
+      "address": "Rajwada",
+      "location": {
+        "lat": 22.7184344,
+        "lng": 75.8547755
+      },
+      "status": "In Progress",
+      "trackingId": "CMP-1780154403949",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T15:20:03.949Z"
+        },
+        {
+          "status": "In Progress",
+          "updatedBy": "prem27malhotra",
+          "note": "Updated by admin",
+          "time": "2026-05-30T15:47:42.514Z"
+        }
+      ],
+      "createdAt": "2026-05-30T15:20:03.949Z"
+    },
+    {
+      "_id": "1780154460480",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780153587940",
+      "issue": "Street light not working",
+      "description": "The street light in our area has stopped working. The area becomes dark at night.",
+      "department": "Road",
+      "risk": "Low",
+      "ward": "Ward 1",
+      "address": "Bengali Sq",
+      "location": {
+        "lat": 22.714434707917466,
+        "lng": 75.90843459475384
+      },
+      "status": "Assigned",
+      "trackingId": "CMP-1780154460480",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T15:21:00.480Z"
+        },
+        {
+          "status": "Assigned",
+          "updatedBy": "system",
+          "note": "Updated by admin",
+          "time": "2026-05-30T15:37:54.324Z"
+        }
+      ],
+      "createdAt": "2026-05-30T15:21:00.480Z"
+    },
+    {
+      "_id": "1780155705518",
+      "citizen": "Prem Malhotra",
+      "citizenId": "1780153587940",
+      "issue": "Default Complaint",
+      "description": "This is a test",
+      "department": "General",
+      "risk": "Low",
+      "ward": "Ward 11",
+      "address": "Test Address",
+      "location": {
+        "lat": 22.714480614812093,
+        "lng": 75.9084768067158
+      },
+      "status": "Assigned",
+      "trackingId": "CMP-1780155705518",
+      "timeline": [
+        {
+          "status": "Pending",
+          "updatedBy": "Prem Malhotra",
+          "note": "Complaint created",
+          "time": "2026-05-30T15:41:45.518Z"
+        },
+        {
+          "status": "Assigned",
+          "updatedBy": "prem27malhotra",
+          "note": "Updated by admin",
+          "time": "2026-05-30T15:42:16.330Z"
+        }
+      ],
+      "createdAt": "2026-05-30T15:41:45.518Z"
+    }
+  ],
+  "alerts": [
+    {
+      "_id": "1780138655966",
+      "message": "Critical: Fire accident near school",
+      "priority": "Critical",
+      "complaintId": "1780138655960",
+      "read": true,
+      "createdAt": "2026-05-30T10:57:35.966Z"
+    },
+    {
+      "_id": "1780142951814",
+      "title": "Officer Escalation",
+      "message": "Fire Emergency at sector 5",
+      "priority": "Critical",
+      "targetRole": "admin",
+      "read": false,
+      "createdAt": "2026-05-30T12:09:11.814Z"
+    },
+    {
+      "_id": "1780145940666",
+      "title": "Officer Escalation",
+      "message": "Fire Emergency ! Sector 5",
+      "priority": "Critical",
+      "targetRole": "admin",
+      "read": true,
+      "createdAt": "2026-05-30T12:59:00.666Z"
+    },
+    {
+      "_id": "1780152286398",
+      "message": "Critical: Ambulance Emergency",
+      "priority": "Critical",
+      "complaintId": "1780152286392",
+      "read": false,
+      "createdAt": "2026-05-30T14:44:46.398Z"
+    },
+    {
+      "_id": "1780154268181",
+      "message": "Critical: Fire accident near school",
+      "priority": "Critical",
+      "complaintId": "1780154268176",
+      "read": false,
+      "createdAt": "2026-05-30T15:17:48.181Z"
+    },
+    {
+      "_id": "1780156417763",
+      "title": "Officer Escalation",
+      "message": "Fire emergency in sector 5",
+      "priority": "Critical",
+      "targetRole": "admin",
+      "read": false,
+      "createdAt": "2026-05-30T15:53:37.763Z"
+    },
+    {
+      "_id": "1780156967170",
+      "title": "🚨 OFFICER ESCALATION",
+      "message": "Amulance emergency",
+      "priority": "Critical",
+      "targetRole": "admin",
+      "read": true,
+      "createdAt": "2026-05-30T16:02:47.170Z"
+    }
+  ]
+}
